@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\meses;
 use App\añosemp;
+
+use App\Gallery;
 use Carbon\Carbon;
+use App\estructura;
 use App\Onomasticas;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -29,11 +32,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $onomasticas = Onomasticas::all()->count();
-        $cumples= Onomasticas::where('CUMP',Carbon::now()->month+1)->count();
-        $arrayaños =añosemp::select('Id')->get();
-        $años= Onomasticas::whereIn('AÑOSEMP', $arrayaños)->count();
-        return view('home',compact('onomasticas','cumples','años'));
+        $galleries = Gallery::all();
+        $estructura = estructura::all()->count();
+        $uc = estructura::where('Codigo_Linea', "L1")->count();
+        $um = estructura::where('Codigo_Linea', "L2")->count();
+        $urd = estructura::where('Codigo_Linea', "L3")->count();
+        $kam= estructura::where('Codigo_Linea', "KA")->count();
+        $hr = estructura::where('Codigo_Linea', "HR")->count();
+        $mch= estructura::where('Codigo_Linea', "LO")->count();
+
+        $gamch = estructura::where('Codigo_Linea', "GO")->count();
+        $gaeticos = estructura::where('Codigo_Linea', "GA")->count();
+
+        return view('home',compact('estructura', 'uc','um', 'urd','kam','mch', 'hr','gaeticos', 'gamch','galleries' ));
     }
 
 }

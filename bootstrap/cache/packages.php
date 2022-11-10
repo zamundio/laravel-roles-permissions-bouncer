@@ -10,6 +10,13 @@
       'Debugbar' => 'Barryvdh\\Debugbar\\Facades\\Debugbar',
     ),
   ),
+  'consoletvs/charts' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ConsoleTVs\\Charts\\ChartsServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
@@ -72,6 +79,13 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
+  'laraveldaily/laravel-charts' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaravelDaily\\LaravelCharts\\LaravelChartsServiceProvider',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
@@ -88,6 +102,13 @@
     'aliases' => 
     array (
       'Bouncer' => 'Silber\\Bouncer\\BouncerFacade',
+    ),
+  ),
+  'spatie/laravel-medialibrary' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
     ),
   ),
 );

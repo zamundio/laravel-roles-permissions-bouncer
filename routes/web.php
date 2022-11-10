@@ -4,7 +4,7 @@ Route::get('/', 'AdminHomeController@index')->name('adminhome');
 Auth::routes(['register' => false]);
 
 // Change Password Routes...
-Route::get('change_password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('auth.change_password');
+// Route::get('change_password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('auth.change_password');
 Route::patch('change_password', 'Auth\ChangePasswordController@changePassword')->name('auth.change_password');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
@@ -15,6 +15,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.', '
     Route::resource('roles', 'RolesController');
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
-	Route::resource('onomasticas', 'OnomasticasController');
 
-});
+}
+
+);
+Route::resource('estructura', 'EstructuraController');
+Route::resource('listadored', 'ListadoRedController');

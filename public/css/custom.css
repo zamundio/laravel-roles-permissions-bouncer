@@ -79,9 +79,17 @@ table.dataTable thead .sorting_desc {
     background: linear-gradient(to right, #0a504a, #38ef7d) !important;
     color: #fff;
 }
-
+.l-bg-teal-dark {
+    background: linear-gradient(to right, #0a504a, #38d3ef) !important;
+    color: #fff;
+}
 .l-bg-orange-dark {
-    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    background: linear-gradient(to right, #0a504a, #ef8d38) !important;
+    color: #fff;
+}
+
+.l-bg-yellow-dark {
+    background: linear-gradient(to right, #0a504a, #fffc56) !important;
     color: #fff;
 }
 

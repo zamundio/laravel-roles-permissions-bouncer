@@ -11,15 +11,15 @@
                                 }
                                 ?>
             </select>
-            <select class="form-control" multiple title="Mes Onomastica" data-style="form-control" id="SelectMeses" name="meses[]" data-live-search=" true">
+            <select class="form-control" multiple title="Gerente de Area" data-style="form-control" id="SelectGA" name="ga[]" data-live-search=" true">
                 <option data-tokens="*"> </option>
                 <?php
-                                foreach ($ComboMeses as $key => $value) {
-                                    echo '<option data-tokens=' . $value["Mes"] . ' value=' . $value["Id"] . '>' . $value["Mes"] . '</option>';
+                                foreach ($ComboGA as $key => $value) {
+                                    echo '<option data-tokens=' . $value["Nombre"] . ' value=' . $value["id"] . '>' . $value["Nombre"] . '</option>';
                                 }
                                 ?>
             </select>
-            <select class="form-control" multiple title="Años en la Empresa" data-style="form-control" id="SelectAños" name="años[]" data-live-search=" true">
+            {{-- <select class="form-control" multiple title="Años en la Empresa" data-style="form-control" id="SelectAños" name="años[]" data-live-search=" true">
                 <option data-tokens="*"> </option>
                 <?php
                                 foreach ($AñosEmp as $key => $value) {
@@ -27,15 +27,15 @@
                                 }
                                 ?>
 
-            </select>
-         <select class="form-control" multiple title="Mes Alta Empresa" data-style="form-control" id="SelectMesesEmp" name="mesesemp[]" data-live-search=" true">
-             <option data-tokens="*"> </option>
-             <?php
+            </select> --}}
+            {{-- <select class="form-control" multiple title="Mes Alta Empresa" data-style="form-control" id="SelectMesesEmp" name="mesesemp[]" data-live-search=" true">
+                <option data-tokens="*"> </option>
+                <?php
                                 foreach ($ComboMeses as $key => $value) {
                                     echo '<option data-tokens=' . $value["Mes"] . ' value=' . $value["Id"] . '>' . $value["Mes"] . '</option>';
                                 }
                                 ?>
-         </select>
+            </select> --}}
 
 
         </div>
@@ -61,6 +61,9 @@
                             {{ trans('global.onomasticas.fields.Nombrejv') }}
                         </th>
                         <th>
+                            {{ trans('global.onomasticas.fields.CodigoGA') }}
+                        </th>
+                        <th>
                             {{ trans('global.onomasticas.fields.NombreGA') }}
                         </th>
                         <th>
@@ -81,9 +84,9 @@
                         <th>
                             {{ trans('global.onomasticas.fields.mail') }}
                         </th>
-                         <th>
-                             {{ trans('global.onomasticas.fields.dni') }}
-                         </th>
+                        <th>
+                            {{ trans('global.onomasticas.fields.dni') }}
+                        </th>
                         <th>
                             {{ trans('global.onomasticas.fields.dir') }}
                         </th>
@@ -103,91 +106,100 @@
                         <th>
                             {{ trans('global.onomasticas.fields.F_Nac') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('global.onomasticas.fields.EDAD') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('global.onomasticas.fields.Movil') }}
                         </th>
-                        <th>
+                         <th>
+                             {{ trans('global.onomasticas.fields.Abrev') }}
+                         </th>
+                        {{-- <th>
                             {{ trans('global.onomasticas.fields.AÑOSEMP') }}
                         </th>
                         <th>
                             {{ trans('global.onomasticas.fields.CUMP') }}
-                        </th>
+                        </th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($onomasticas as $key => $onomastica)
-                        <tr data-entry-id="{{ $onomastica->id }}">
+                    @foreach($estructura as $key => $estruct)
+                        <tr data-entry-id="{{ $estruct->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $onomastica->NombreJV ?? '' }}
+                                {{ $estruct->NombreJV ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->NombreGA ?? '' }}
+                                {{ $estruct->codger ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->id ?? '' }}
+                                {{ $estruct->NombreGA ?? '' }}
                             </td>
                             <td>
-
-                                {{ $onomastica->ApellidosRep ?? '' }}
-
-
-
+                                {{ $estruct->id ?? '' }}
                             </td>
                             <td>
 
-                                {{ $onomastica->NombreRep ?? '' }}
+                                {{ $estruct->ApellidosRep ?? '' }}
 
 
 
                             </td>
                             <td>
-                                {{ $onomastica->Codigo_Linea ?? '' }}
+
+                                {{ $estruct->NombreRep ?? '' }}
+
+
+
                             </td>
                             <td>
-                                {{ $onomastica->Linea ?? '' }}
+                                {{ $estruct->Codigo_Linea ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->mail ?? '' }}
+                                {{ $estruct->Linea ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->DNI ?? '' }}
+                                {{ $estruct->mail ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->Direccion ?? '' }}
+                                {{ $estruct->DNI ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->Poblacion ?? '' }}
+                                {{ $estruct->Direccion ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->CP ?? '' }}
+                                {{ $estruct->Poblacion ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->Provincia ?? '' }}
+                                {{ $estruct->CP ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->F_Alta ?? '' }}
+                                {{ $estruct->Provincia ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->F_Nac ?? '' }}
+                                {{ $estruct->F_Alta ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->EDAD ?? '' }}
+                                {{ $estruct->F_Nac ?? '' }}
+                            </td>
+                            {{-- <td>
+                                {{ $estruct->EDAD ?? '' }}
+                            </td> --}}
+                            <td>
+                                {{ $estruct->Movil ?? '' }}
+                            </td>
+                             <td>
+                                 {{ $estruct->Abrev ?? '' }}
+                             </td>
+                            {{-- <td>
+                                {{ $estruct->AÑOSEMP ?? '' }}
                             </td>
                             <td>
-                                {{ $onomastica->Movil ?? '' }}
-                            </td>
-                            <td>
-                                {{ $onomastica->AÑOSEMP ?? '' }}
-                            </td>
-                            <td>
-                                {{ $onomastica->CUMP ?? '' }}
-                            </td>
+                                {{ $estruct->CUMP ?? '' }}
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>
@@ -195,6 +207,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 @section('scripts')
 @parent
@@ -208,24 +221,24 @@
             enableCaseInsensitiveFiltering: true,
             buttonWidth: '100px'
         });
-        $('#SelectMeses').multiselect({
-            nonSelectedText: 'Mes Onomastica',
+        $('#SelectGA').multiselect({
+            nonSelectedText: 'Gerente de Area',
             enableFiltering: true,
             enableCaseInsensitiveFiltering: true,
             buttonWidth: '200px'
         });
-        $('#SelectAños').multiselect({
-            nonSelectedText: 'Años Emp',
-            enableFiltering: true,
-            enableCaseInsensitiveFiltering: true,
-            buttonWidth: '150px'
-        });
-        $('#SelectMesesEmp').multiselect({
-        nonSelectedText: 'Mes Alta  Emp',
-        enableFiltering: true,
-        enableCaseInsensitiveFiltering: true,
-        buttonWidth: '200px'
-        });
+        // $('#SelectAños').multiselect({
+        //     nonSelectedText: 'Años Emp',
+        //     enableFiltering: true,
+        //     enableCaseInsensitiveFiltering: true,
+        //     buttonWidth: '150px'
+        // });
+        // $('#SelectMesesEmp').multiselect({
+        //     nonSelectedText: 'Mes Alta  Emp',
+        //     enableFiltering: true,
+        //     enableCaseInsensitiveFiltering: true,
+        //     buttonWidth: '200px'
+        // });
         let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
         let deleteButton = {
             text: deleteButtonTrans,
@@ -255,17 +268,18 @@
         var table = $('#onomasticas').DataTable({
             "pageLength": 20,
             columnDefs: [{
-                width: 10,
-                targets: 1
-            },{
-                width: 10,
-                targets: 9,
-				visible:false
-            },
-			{
-                width: 10,
-                targets: 10
-            }].concat($.fn.dataTable.defaults.columnDefs),
+                    width: 10,
+                    targets: 1
+                }, {
+                    width: 10,
+                    targets: 9,
+                    visible: false
+                },
+                {
+                    width: 10,
+                    targets: 10
+                }
+            ].concat($.fn.dataTable.defaults.columnDefs),
 
             buttons: dtButtons,
             select: {
@@ -287,15 +301,16 @@
 
         $("#onomasticas_filter.dataTables_filter").append($("#SelectJV"));
 
-        $("#onomasticas_filter.dataTables_filter").append($("#SelectMeses"));
+        $("#onomasticas_filter.dataTables_filter").append($("#SelecGA"));
         $("#onomasticas_filter.dataTables_filter").append($("#SelectAños"));
-         $("#onomasticas_filter.dataTables_filter").append($("#SelectMesesEmp"));
+        $("#onomasticas_filter.dataTables_filter").append($("#SelectMesesEmp"));
 
         $("#SelectJV").on('change', function () {
 
 
             var groupNameFilterApplied = [];
             $('#SelectJV :selected').each(function () {
+                  console.log($(this).val());
                 groupNameFilterApplied.push($(this).val());
             });
 
@@ -303,23 +318,25 @@
 
 
 
-            $('#onomasticas').DataTable().column(6).search(groupNameFilterApplied.join('|'), true, false, true).draw();
+            $('#onomasticas').DataTable().column(7).search(groupNameFilterApplied.join('|'), true, false, true).draw();
 
 
         });
-        $("#SelectMeses").on('change', function () {
+        $("#SelectGA").on('change', function () {
 
 
             var groupNameFilterApplied = [];
-            $('#SelectMeses :selected').each(function () {
-                groupNameFilterApplied.push("/" + $(this).val() + "/");
+            $('#SelectGA :selected').each(function () {
+                console.log($(this).val());
+                 groupNameFilterApplied.push("^" + $(this).val() + "$");
+                // groupNameFilterApplied.push("/" + $(this).val() + "/");
             });
 
 
 
-            console.log(groupNameFilterApplied.join('|'));
 
-            $('#onomasticas').DataTable().column(15).search(groupNameFilterApplied.join('|'), true, false, true).draw();
+
+            $('#onomasticas').DataTable().column(2).search(groupNameFilterApplied.join('|'), true, false, true).draw();
 
 
         });
@@ -338,22 +355,22 @@
 
 
         });
-          $("#SelectMesesEmp").on('change', function () {
+        $("#SelectMesesEmp").on('change', function () {
 
 
-          var groupNameFilterApplied = [];
-          $('#SelectMesesEmp :selected').each(function () {
-          groupNameFilterApplied.push("/" + $(this).val() + "/");
-          });
+            var groupNameFilterApplied = [];
+            $('#SelectMesesEmp :selected').each(function () {
+                groupNameFilterApplied.push("/" + $(this).val() + "/");
+            });
 
 
 
-          console.log(groupNameFilterApplied.join('|'));
+            console.log(groupNameFilterApplied.join('|'));
 
-          $('#onomasticas').DataTable().column(14).search(groupNameFilterApplied.join('|'), true, false, true).draw();
+            $('#onomasticas').DataTable().column(14).search(groupNameFilterApplied.join('|'), true, false, true).draw();
 
 
-          });
+        });
     });
 
 </script>

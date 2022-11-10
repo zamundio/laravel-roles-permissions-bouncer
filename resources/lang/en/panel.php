@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Onomasticas FF',
+    'site_title' => 'Estructura FF',
 ];

@@ -45,25 +45,43 @@
                         </li>
                     </ul>
                 </li>
+                  <li class="nav-item">
+                      <a href="{{ route('auth.change_password') }}" class="nav-link {{ request()->is('change_password') ? 'active' : '' }}">
+                          <i class="nav-icon fas fa-fw fa-key">
+
+                          </i>
+                          {{ trans('global.change_password') }}
+                      </a>
+                  </li>
+                 <li class="nav-item">
+                     <a href="{{ route('auth.change_password') }}" class="nav-link {{ request()->is('change_password') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-fw fa-key">
+
+                         </i>
+                         {{ trans('global.change_password') }}
+                     </a>
+                 </li>
             @endcan
-@can('onomasticas_show')
-            <li class="nav-item">
-                <a href="{{ route('admin.onomasticas.index') }}" class="nav-link {{ request()->is('onomasticas') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-fw fa-key">
+            @can('onomasticas_show')
+                <li class="nav-item">
+                    <a href="{{ route('estructura.index') }}" class="nav-link {{ request()->is('estructura') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-fw fa-key">
 
-                    </i>
-                   Onomasticas
-                </a>
-            </li>
-@endcan
-            <li class="nav-item">
-                <a href="{{ route('auth.change_password') }}" class="nav-link {{ request()->is('change_password') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-fw fa-key">
+                        </i>
+                        Estructura
+                    </a>
+                </li>
+                 <li class="nav-item">
+                     <a href="{{ route('listadored.index') }}" class="nav-link {{ request()->is('listadored') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-fw fa-key">
 
-                    </i>
-              {{ trans('global.change_password') }}
-                </a>
-            </li>
+                         </i>
+                         Listado Telefonos Red
+                     </a>
+                 </li>
+
+            @endcan
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

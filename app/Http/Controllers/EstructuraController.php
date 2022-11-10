@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 
+use App\am;
 use App\meses;
 use App\lineas;
 use App\añosemp;
-use App\Onomasticas;
+
+use App\Estructura;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class OnomasticasController extends Controller
+class EstructuraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,12 +23,13 @@ class OnomasticasController extends Controller
     {
         // abort_unless(\Gate::allows('product_access'), 403);
 
-        $onomasticas = Onomasticas::all();
+        $estructura = Estructura::all();
         $ComboJV=lineas::All();
+        $ComboGA=am::All();
         $ComboMeses = meses::All();
         $AñosEmp = añosemp::orderBy('Id') ->get();
 
-        return view('admin.onomasticas.index', compact('onomasticas', 'ComboJV','ComboMeses', 'AñosEmp'));
+        return view('estructura.index', compact('estructura', 'ComboJV','ComboGA', 'AñosEmp'));
     }
 
     /**

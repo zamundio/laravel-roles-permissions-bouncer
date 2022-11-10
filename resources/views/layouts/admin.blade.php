@@ -19,7 +19,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
+     <!-- Libraries CSS Files -->
+
+     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('lib/venobox/venobox.css') }}" rel="stylesheet">
+     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/bootstrap-multiselect.min.css') }}" rel="stylesheet" type="text/css">
     @yield('styles')
 </head>
@@ -79,7 +86,7 @@
                     </div>
                 @endif
                 @yield('content')
-
+                @yield('carrousel')
             </div>
 
 
@@ -109,14 +116,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+     <script src="{{ asset('lib/superfish/superfish.min.js') }}"></script>
+     <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+     <script src="{{ asset('lib/venobox/venobox.min.js') }}"></script>
+     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/bootstrap-multiselect.js') }}"></script>
+	 <!-- JavaScript Libraries -->
+
+
+
     <script>
         $(function () {
             let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
             let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
             let excelButtonTrans = '{{ trans('global.datatables.excelono') }}'
-            let excelButtonTrans2 = '{{ trans('global.datatables.excelaños') }}'
+            // let excelButtonTrans2 = '{{ trans('global.datatables.excelaños') }}'
             let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
             let printButtonTrans = '{{ trans('global.datatables.print') }}'
             let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
@@ -170,26 +185,26 @@
                         extend: 'excel',
                         className: 'btn-default',
                         text: excelButtonTrans,
-                        title: 'Onomasticas',
+                        title: 'Estructura',
                         exportOptions: {
-                            columns: [4, 5, 8,9, 10, 11, 12,13, 15, 16,17,1, 7],
+                            // columns: [4, 5, 6,9, 10, 11, 12,13,14, 15, 16,17,18,1, 7,8],
                             modifier: {
-                                selected: null
+                                selected: true
                             }
                         }
                     },
-                    {
-                        extend: 'excel',
-                        className: 'btn-default',
-                        text: excelButtonTrans2,
-                        title: 'Antiguedad',
-                        exportOptions: {
-                            columns: [4, 5, 8,9,10, 11, 12,13,14,17,18,1, 7],
-                            modifier: {
-                                selected: null
-                            }
-                        }
-                    },
+                    // {
+                    //     extend: 'excel',
+                    //     className: 'btn-default',
+                    //     text: excelButtonTrans2,
+                    //     title: 'Antiguedad',
+                    //     exportOptions: {
+                    //         columns: [4, 5, 8,9,10, 11, 12,13,14,17,18,1, 7],
+                    //         modifier: {
+                    //             selected: null
+                    //         }
+                    //     }
+                    // },
                     {
                         extend: 'pdf',
                         className: 'btn-default',

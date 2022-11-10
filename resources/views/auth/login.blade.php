@@ -7,9 +7,9 @@
     }
 
 .card-group {
-background-color: white;
-width: 50%;
-height: 50%;
+background-color: rgba(255, 255, 255, 0);
+width: 60%;
+height: 60%;
 }
 
 </style>
@@ -17,13 +17,13 @@ height: 50%;
 <div class="col-md-5">
     <div class="login-logo">
         <div class="login-logo">
-            <img src="{{ asset("assets/images/cupcake2.png") }}" class="rounded mx-auto d-block">
+            <img src="{{ asset("assets/images/medical2.png") }}" class="mx-auto d-block">
         </div>
     </div>
     <div class="col-md-8">
 
         <div class="card-body">
-            <div class="card-group mx-auto" style="width: 25rem">
+            <div class="shadow-lg card-group mx-auto" style="width: 35rem">
                 <div class="card p-4">
 
                     @if(\Session::has('message'))
